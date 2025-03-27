@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Widget Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .content {
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Chat Widget Demo</h1>
+      <p>Click the chat button in the bottom right corner</p>
+    </div>
+
+    <chat-widget
+      chat-id="chat-id"
+      button-color="#3498db"
+      button-hover-color="#000"
+    ></chat-widget>
+
+    <script type="module">
+      import "./src/main.ts";
+
+      // Example of dynamic context update
+      window.addEventListener("DOMContentLoaded", () => {
+        const widget = document.querySelector("chat-widget");
+
+        // Demonstrate getContext functionality
+        if (widget) {
+          widget.getContext = () => {
+            return JSON.stringify({
+              user: "demo_user",
+              timestamp: new Date().toISOString(),
+            });
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

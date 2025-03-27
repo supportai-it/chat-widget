@@ -1,0 +1,53 @@
+{
+    "name": "@supportai.it/chat-widget",
+    "private": false,
+    "version": "1.0.2",
+    "type": "module",
+    "main": "dist/chat-widget.js",
+    "module": "dist/chat-widget.js",
+    "types": "dist/types/main.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/chat-widget.js",
+            "types": "./dist/types/main.d.ts"
+        }
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "npm run clean && npm run build:vue && npm run build:types",
+        "build:vue": "vite build",
+        "build:types": "tsc --outDir dist/types",
+        "clean": "rm -rf dist",
+        "preview": "vite preview",
+        "publish:public": "npm publish --access public"
+    },
+    "keywords": [
+        "supportAI",
+        "web-component",
+        "chat-widget"
+    ],
+    "dependencies": {
+        "vue": "^3.3.4"
+    },
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.4.3",
+        "@types/node": "^22.13.14",
+        "@vitejs/plugin-vue": "^4.2.3",
+        "@vue/compiler-sfc": "^3.3.4",
+        "@vue/tsconfig": "^0.7.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.3.9",
+        "vite-plugin-dts": "^3.0.3",
+        "vue-tsc": "^1.8.27"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/supportai-it/chat-widget.git"
+    },
+    "description": "Chat widget web component for supportAI.it",
+    "author": "giacomoarienti",
+    "license": "ISC"
+}
