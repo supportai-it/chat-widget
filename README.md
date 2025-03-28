@@ -1,9 +1,11 @@
 # Universal Chat Widget
+
 [![](https://data.jsdelivr.com/v1/package/npm/@supportai.it/chat-widget/badge)](https://www.jsdelivr.com/package/npm/@supportai.it/chat-widget)
 
 ## Installation
 
 ### Usign CND:
+
 ```html
 <script src="
 https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget/dist/chat-widget.umd.js
@@ -11,6 +13,7 @@ https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget/dist/chat-widget.umd.js
 ```
 
 ### Using npm
+
 ```bash
 npm install @supportai.it/chat-widget
 ```
@@ -25,6 +28,19 @@ npm install @supportai.it/chat-widget
   button-color="#ff0000"
   button-size="56px"
 ></chat-widget>
+
+<script>
+  // Example of dynamic context update
+  window.addEventListener("DOMContentLoaded", () => {
+    const widget = document.querySelector("chat-widget");
+
+    if (widget) {
+      widget.getContext = () => {
+        return JSON.stringify({ user: "example" });
+      };
+    }
+  });
+</script>
 ```
 
 ### React
@@ -37,6 +53,7 @@ function App() {
   const chatRef = useRef(null);
 
   useEffect(() => {
+    // Example of dynamic context update
     const getContext = () => {
       return JSON.stringify({ user: "example" });
     };
@@ -46,12 +63,7 @@ function App() {
     }
   }, []);
 
-  return (
-    <chat-widget
-      ref={chatRef}
-      chat-id="chat-id"
-    />
-  );
+  return <chat-widget ref={chatRef} chat-id="chat-id" />;
 }
 ```
 
