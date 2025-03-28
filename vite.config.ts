@@ -1,17 +1,9 @@
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
 import terser from "@rollup/plugin-terser";
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => tag.startsWith("chat-"),
-        },
-      },
-    }),
     dts({
       insertTypesEntry: true,
       outDir: 'dist/types',
@@ -19,6 +11,7 @@ export default defineConfig({
   ],
   build: {
     minify: "terser",
+    target: 'esnext',
     terserOptions: {
       compress: {
         drop_console: true,
@@ -33,10 +26,9 @@ export default defineConfig({
       entry: "./src/main.ts",
       name: "ChatWidget",
       fileName: "chat-widget",
-      formats: ["es"],
+      formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: ["vue"],
       plugins: [
         terser({
           compress: {
@@ -49,11 +41,6 @@ export default defineConfig({
           },
         }),
       ],
-      output: {
-        globals: {
-          vue: "Vue",
-        },
-      },
     },
   },
 });
