@@ -1,7 +1,16 @@
 # Universal Chat Widget
+[![](https://data.jsdelivr.com/v1/package/npm/@supportai.it/chat-widget/badge)](https://www.jsdelivr.com/package/npm/@supportai.it/chat-widget)
 
 ## Installation
 
+### Usign CND:
+```html
+<script src="
+https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget/dist/chat-widget.umd.min.js
+"></script>
+```
+
+### Using npm
 ```bash
 npm install @supportai.it/chat-widget
 ```
@@ -16,10 +25,6 @@ npm install @supportai.it/chat-widget
   button-color="#ff0000"
   button-size="56px"
 ></chat-widget>
-
-<script type="module">
-  import "@supportai.it/chat-widget";
-</script>
 ```
 
 ### React
@@ -60,7 +65,6 @@ window.dispatchEvent(new CustomEvent("chat-widget/updateContext"));
 
 ## Props
 
-- `base-url`: Base URL for the chat (Required)
 - `chat-url`: Specific chat path (Optional)
 - `button-color`: Custom button color (Default: #e74266)
 - `button-hover-color`: Custom hover color (Default: #d6365d)

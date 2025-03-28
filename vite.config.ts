@@ -25,10 +25,19 @@ export default defineConfig({
     lib: {
       entry: "./src/main.ts",
       name: "ChatWidget",
-      fileName: "chat-widget",
+      fileName: (format) => {
+        if (format === 'es') return 'chat-widget.es.js';
+        if (format === 'umd') return 'chat-widget.umd.js';
+        return 'chat-widget.js';
+      },
       formats: ["es", "umd"],
     },
     rollupOptions: {
+      output: {
+        globals: {
+          ChatWidget: 'ChatWidget'
+        }
+      },
       plugins: [
         terser({
           compress: {

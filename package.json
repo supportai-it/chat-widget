@@ -1,17 +1,18 @@
 {
     "name": "@supportai.it/chat-widget",
     "private": false,
-    "version": "1.0.4",
+    "version": "1.0.5",
     "type": "module",
-    "main": "dist/chat-widget.js",
-    "module": "dist/chat-widget.js",
+    "main": "dist/chat-widget.umd.js",
+    "module": "dist/chat-widget.es.js",
     "types": "dist/types/main.d.ts",
     "files": [
         "dist"
     ],
     "exports": {
         ".": {
-            "import": "./dist/chat-widget.js",
+            "import": "./dist/chat-widget.es.js",
+            "require": "./dist/chat-widget.umd.js",
             "types": "./dist/types/main.d.ts"
         }
     },
