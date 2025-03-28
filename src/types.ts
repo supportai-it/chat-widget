@@ -4,6 +4,7 @@ export interface ChatWidgetProps {
   buttonHoverColor?: string;
   buttonSize?: string;
   getContext?: () => string;
+  messageBubble?: string | boolean;
 }
 
 declare global {
