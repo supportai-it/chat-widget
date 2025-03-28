@@ -7,6 +7,11 @@ interface ChatWidgetProps {
   "chat-id": string;
 
   /**
+   * API key for authentication
+   */
+  "api-key": string;
+
+  /**
    * Background color of the chat button
    * @default "#582975"
    */

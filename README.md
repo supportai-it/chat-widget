@@ -25,6 +25,7 @@ npm install @supportai.it/chat-widget
 ```html
 <chat-widget
   chat-id="chat-id"
+  api-key="api-key"
   button-color="#ff0000"
   button-size="56px"
 ></chat-widget>
@@ -63,7 +64,13 @@ function App() {
     }
   }, []);
 
-  return <chat-widget ref={chatRef} chat-id="chat-id" />;
+  return (
+    <chat-widget
+      ref={chatRef}
+      chat-id="chat-id"
+      api-key="api-key"
+    ></chat-widget>
+  );
 }
 ```
 
@@ -76,7 +83,8 @@ window.dispatchEvent(new CustomEvent("chat-widget/updateContext"));
 
 ## Props
 
-- `chat-url`: Specific chat path (Optional)
+- `chat-id`: The ID of the chat to be opened.
+- `api-key`: The API key for authentication.
 - `button-color`: Custom button color (Default: #582975)
 - `button-hover-color`: Custom hover color (Default: #7b2ba6)
 - `button-size`: Button size (Default: 64px)
