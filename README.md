@@ -7,9 +7,7 @@
 ### Usign CND:
 
 ```html
-<script src="
-https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget/dist/chat-widget.umd.js
-"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget"></script>
 ```
 
 ### Using npm
