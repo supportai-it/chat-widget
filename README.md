@@ -65,8 +65,9 @@ window.dispatchEvent(new CustomEvent("chat-widget/updateContext"));
 ## Props
 
 - `chat-url`: Specific chat path (Optional)
-- `button-color`: Custom button color (Default: #e74266)
-- `button-hover-color`: Custom hover color (Default: #d6365d)
+- `button-color`: Custom button color (Default: #582975)
+- `button-hover-color`: Custom hover color (Default: #7b2ba6)
 - `button-size`: Button size (Default: 64px)
 - `get-context`: Function to get dynamic context
 - `message-bubble`: Display a message bubble on top of the open button (when the chat is closed). Set to `false` to disable.
+- `chat-align`: Chat alignment "left" or "right". (Default: right)

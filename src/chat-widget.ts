@@ -17,6 +17,7 @@ class ChatWidget extends HTMLElement {
       "Ciao, sono l'assistente virtuale di <b>supportAI</b>, se hai bisogno di assistenza apri la chat!" as
         | string
         | boolean,
+    chatAlign: "right" as "right" | "left",
   };
 
   constructor() {
@@ -31,6 +32,7 @@ class ChatWidget extends HTMLElement {
       "button-hover-color",
       "button-size",
       "message-bubble",
+      "chat-align",
     ];
   }
 
@@ -56,6 +58,9 @@ class ChatWidget extends HTMLElement {
               ? false
               : newValue ||
                 "Ciao, sono l'assistente virtuale di supportAI, se hai bisogno di assistenza apri la chat!";
+          break;
+        case "chat-align":
+          this._config.chatAlign = newValue === "left" ? "left" : "right";
           break;
       }
       this.render();
@@ -126,7 +131,7 @@ class ChatWidget extends HTMLElement {
       .chat-widget {
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        ${this._config.chatAlign}: 20px;
         z-index: 9999;
       }
 
@@ -134,16 +139,21 @@ class ChatWidget extends HTMLElement {
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: ${this._config.chatAlign === "right" ? "flex-end" : "flex-start"};
       }
 
       .message-bubble, .typing-indicator {
         background-color: white;
         border: 1px solid #e0e0e0;
-        border-radius: 15px 15px 0 15px;
+        border-radius: ${
+          this._config.chatAlign === "right"
+            ? "15px 15px 0 15px"
+            : "15px 15px 15px 0"
+        };
         padding: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-right: 45px;
+        margin-${this._config.chatAlign}: 40px;
+        text-align: left;
       }
 
       .message-bubble {
@@ -213,7 +223,7 @@ class ChatWidget extends HTMLElement {
       .chat-modal {
         position: fixed;
         bottom: 100px;
-        right: 20px;
+        ${this._config.chatAlign}: 20px;
         width: 400px;
         height: 600px;
         background: white;
