@@ -50,7 +50,6 @@ function App() {
     <chat-widget
       ref={chatRef}
       chat-id="chat-id"
-      button-color="#ff0000"
     />
   );
 }
@@ -70,3 +69,4 @@ window.dispatchEvent(new CustomEvent("chat-widget/updateContext"));
 - `button-hover-color`: Custom hover color (Default: #d6365d)
 - `button-size`: Button size (Default: 64px)
 - `get-context`: Function to get dynamic context
+- `message-bubble`: Display a message bubble on top of the open button (when the chat is closed). Set to `false` to disable.

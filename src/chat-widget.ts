@@ -3,6 +3,8 @@ class ChatWidget extends HTMLElement {
   private _isMobile = false;
   private _fullChatUrl = "";
   private _baseUrl = "https://www.supportai.it/chat/";
+  private _isFirstLoad = true;
+  private _firstChatOpen = false;
 
   // Default configuration
   private _config = {
@@ -90,6 +92,9 @@ class ChatWidget extends HTMLElement {
   }
 
   private toggleChat() {
+    if(!this._firstChatOpen) {
+      this._firstChatOpen = true;
+    }
     this._isOpen = !this._isOpen;
     this.render();
   }
@@ -118,111 +123,158 @@ class ChatWidget extends HTMLElement {
 
     const style = `
       <style>
-        .chat-widget {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          z-index: 9999;
-        }
+      .chat-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+      }
 
-        .chat-button-container {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-        }
+      .chat-button-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
 
-        .message-bubble {
-          max-width: 250px;
-          background-color: white;
-          border: 1px solid #e0e0e0;
-          border-radius: 15px 15px 0 15px;
-          padding: 10px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          font-size: 14px;
-          line-height: 1.4;
-          margin-right: 40px;
-        }
+      .message-bubble, .typing-indicator {
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 15px 15px 0 15px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-right: 45px;
+      }
 
-        .chat-button {
-          border: none;
-          border-radius: 50%;
-          cursor: pointer;
-          margin-top: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          transition: background-color 0.3s ease;
-          background-color: ${this._config.buttonColor};
-          width: ${this._config.buttonSize};
-          height: ${this._config.buttonSize};
-        }
+      .message-bubble {
+        max-width: 250px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
 
-        .chat-button svg {
-          width: 75%;
-          height: 75%;
-        }
+      .typing-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .chat-button:hover {
-          background-color: ${this._config.buttonHoverColor};
-        }
+      .typing-dot {
+        background-color: #888;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        animation: typing 1.4s infinite ease-in-out;
+      }
 
-        .chat-modal {
-          position: fixed;
-          bottom: 100px;
-          right: 20px;
-          width: 400px;
-          height: 600px;
-          background: white;
-          border-radius: 10px;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-          overflow: hidden;
-          z-index: 10000;
-        }
+      .typing-dot:nth-child(1) {
+        animation-delay: -0.32s;
+      }
 
-        .chat-modal.mobile-fullscreen {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          bottom: auto;
-          right: auto;
-          border-radius: 0;
-        }
+      .typing-dot:nth-child(2) {
+        animation-delay: -0.16s;
+      }
 
-        .chat-modal-header {
-          display: flex;
-          justify-content: flex-end;
-          height: 2%;
-          padding: 10px;
-          background-color: #f0f0f0;
+      @keyframes typing {
+        0%, 80%, 100% {
+        opacity: 0.5;
+        transform: scale(0.8);
         }
+        40% {
+        opacity: 1;
+        transform: scale(1);
+        }
+      }
 
-        .close-button {
-          background: none;
-          border: none;
-          color: #333;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
+      .chat-button {
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+        background-color: ${this._config.buttonColor};
+        width: ${this._config.buttonSize};
+        height: ${this._config.buttonSize};
+      }
 
-        .chat-iframe {
-          width: 100%;
-          height: calc(100% - 1% - 20px);
-          border: none;
-        }
+      .chat-button svg {
+        width: 75%;
+        height: 75%;
+      }
+
+      .chat-button:hover {
+        background-color: ${this._config.buttonHoverColor};
+      }
+
+      .chat-modal {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 400px;
+        height: 600px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        z-index: 10000;
+      }
+
+      .chat-modal.mobile-fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        bottom: auto;
+        right: auto;
+        border-radius: 0;
+      }
+
+      .chat-modal-header {
+        display: flex;
+        justify-content: flex-end;
+        height: 2%;
+        padding: 10px;
+        background-color: #f0f0f0;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .chat-iframe {
+        width: 100%;
+        height: calc(100% - 1% - 20px);
+        border: none;
+      }
       </style>
     `;
 
-    // Prepare message bubble HTML if enabled and not empty
+    // Prepare message bubble HTML with typing animation
     const messageBubbleHtml =
       this._config.messageBubble &&
       typeof this._config.messageBubble === "string" &&
       !this._isMobile &&
-      !this._isOpen
-        ? `<div class="message-bubble">${this._config.messageBubble}</div>`: "";
+      !this._isOpen &&
+      !this._firstChatOpen
+        ? (this._isFirstLoad
+            ? `
+              <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            `
+            : `<div class="message-bubble">${this._config.messageBubble}</div>`)
+        : "";
 
     const chatButton = `
        <div class="chat-button-container">
@@ -278,6 +330,17 @@ class ChatWidget extends HTMLElement {
       const closeButton = this.shadowRoot.querySelector(".close-button");
       if (closeButton) {
         closeButton.addEventListener("click", () => this.toggleChat());
+      }
+
+      // Add typing animation logic
+      if (this._isFirstLoad && !this._isOpen && !this._isMobile) {
+        const typingIndicator = this.shadowRoot.querySelector(".typing-indicator");
+        if (typingIndicator) {
+          setTimeout(() => {
+            this._isFirstLoad = false;
+            this.render();
+          }, 2500);
+        }
       }
     }
   }
