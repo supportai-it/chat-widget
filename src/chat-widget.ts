@@ -1,4 +1,5 @@
-const svgIcon = `<?xml version="1.0" encoding="UTF-8"?><svg id="a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 535.62 369.81"><defs><linearGradient id="b" x1="218.11" y1="-120.74" x2="475.29" y2="-123.48" gradientTransform="translate(0 145.8) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ededed"/><stop offset="1" stop-color="#fafafa"/></linearGradient></defs><path d="M473.62,329.58c-.42,4.74-1.75,13.63-8.33,20.69-6.33,6.82-15.33,8.39-24.9,10.31-3.91.75-10.66,1.83-23.57,1.66-7.5-.08-18.99-.33-34.48-3.16-33.06-6.07-61.55-20.11-61.55-20.11-48.06-20.11-81.79-48.87-102.69-70.48,4.25-4.16,8.58-8.31,12.83-12.38.5-.42.92-.91,1.5-1.41.67-.67,1.42-1.33,2.17-2.08,14.41-13.63,28.73-26.51,42.98-36.9,16.24-10.89,32.4-21.78,48.56-32.66,4.33-2.83,8.66-5.9,13.08-8.81,3.25,4.74,6.75,9.22,10.66,13.55,32.65,35.9,85.45,48.2,103.61,50.78,2.58.42,9.41,1.25,14.58,6.4,6.41,6.32,6.83,15.71,6.91,21.19.67,26.26-.75,52.61-1.33,63.41Z" fill="url(#b)"/><path d="M525.99,19.32c-5.16,13.8-25.99,76.05-45.64,105.63-1.5,2.33-4.25,6.23-8.75,10.47-2.17,2.08-6.83,6.57-13.58,9.56-11.66,5.24-22.57,3.74-25.57,3.24-18.82-2.99-29.9-17.04-35.98-24.68-16.49-20.69-23.32-48.87-16.74-54.27,2.66-2.16,8.08-2.99,20.9,3.66,1.33.75,2.58,1.33,4,2.16,5.41,2.91,9.58,5.15,13.66,7.56.92.5,2.08,1.16,3.25,1.83.5-.33.92-.66,1.33-1,15.33-11.22,30.48-22.52,45.64-33.74,9.24-6.82,18.41-13.63,27.57-20.45,2.5-1.83,14.33-11.22,19.49-15.04,9.75-7.15,11.66-7.31,12.24-7.06h.08c2.17,1.41-.83,9.14-1.92,12.22v-.08Z" fill="#fff"/><path d="M339.2,174.25c-4.41,2.91-8.75,5.98-13.08,8.81-16.16,10.89-32.32,21.78-48.56,32.66-14.24,10.39-28.57,23.27-42.98,36.9-.75.75-1.5,1.41-2.17,2.08-.58.5-1,1-1.5,1.41-4.25,4.07-8.58,8.23-12.83,12.38-5.75,5.57-13.08,12.55-20.74,19.61-14.16,13.21-31.15,28.92-49.89,41.39-9.83,6.48-32.73,21.36-66.05,28.76-29.65,6.65-55.72,4.65-74.13,1.33,0-53.27-.17-106.55-.25-159.82.75.08,1.5.08,2.42.08,38.9,1.75,67.21-19.78,93.28-42.14,4.33-3.82,8.66-7.56,12.91-11.22,21.4-18.45,41.06-38.31,61.47-57.6,18.07-17.04,36.65-39.14,64.05-43.63.42-.08.75-.17,1.17-.08,1.58-.33,3.25-.5,4.83-.58,12.41-1.16,26.15.5,36.81,5.82,10.66,5.32,16.41,15.87,20.24,27.68,2.42,7.48,4,15.54,5.66,22.94,1.83,8.06,3.17,13.8,3.33,14.54,2.08,9.31,8.16,26.01,25.99,58.59v.08Z" fill="#fff"/></svg>` as const;
+const svgIcon =
+  `<?xml version="1.0" encoding="UTF-8"?><svg id="a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 535.62 369.81"><defs><linearGradient id="b" x1="218.11" y1="-120.74" x2="475.29" y2="-123.48" gradientTransform="translate(0 145.8) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ededed"/><stop offset="1" stop-color="#fafafa"/></linearGradient></defs><path d="M473.62,329.58c-.42,4.74-1.75,13.63-8.33,20.69-6.33,6.82-15.33,8.39-24.9,10.31-3.91.75-10.66,1.83-23.57,1.66-7.5-.08-18.99-.33-34.48-3.16-33.06-6.07-61.55-20.11-61.55-20.11-48.06-20.11-81.79-48.87-102.69-70.48,4.25-4.16,8.58-8.31,12.83-12.38.5-.42.92-.91,1.5-1.41.67-.67,1.42-1.33,2.17-2.08,14.41-13.63,28.73-26.51,42.98-36.9,16.24-10.89,32.4-21.78,48.56-32.66,4.33-2.83,8.66-5.9,13.08-8.81,3.25,4.74,6.75,9.22,10.66,13.55,32.65,35.9,85.45,48.2,103.61,50.78,2.58.42,9.41,1.25,14.58,6.4,6.41,6.32,6.83,15.71,6.91,21.19.67,26.26-.75,52.61-1.33,63.41Z" fill="url(#b)"/><path d="M525.99,19.32c-5.16,13.8-25.99,76.05-45.64,105.63-1.5,2.33-4.25,6.23-8.75,10.47-2.17,2.08-6.83,6.57-13.58,9.56-11.66,5.24-22.57,3.74-25.57,3.24-18.82-2.99-29.9-17.04-35.98-24.68-16.49-20.69-23.32-48.87-16.74-54.27,2.66-2.16,8.08-2.99,20.9,3.66,1.33.75,2.58,1.33,4,2.16,5.41,2.91,9.58,5.15,13.66,7.56.92.5,2.08,1.16,3.25,1.83.5-.33.92-.66,1.33-1,15.33-11.22,30.48-22.52,45.64-33.74,9.24-6.82,18.41-13.63,27.57-20.45,2.5-1.83,14.33-11.22,19.49-15.04,9.75-7.15,11.66-7.31,12.24-7.06h.08c2.17,1.41-.83,9.14-1.92,12.22v-.08Z" fill="#fff"/><path d="M339.2,174.25c-4.41,2.91-8.75,5.98-13.08,8.81-16.16,10.89-32.32,21.78-48.56,32.66-14.24,10.39-28.57,23.27-42.98,36.9-.75.75-1.5,1.41-2.17,2.08-.58.5-1,1-1.5,1.41-4.25,4.07-8.58,8.23-12.83,12.38-5.75,5.57-13.08,12.55-20.74,19.61-14.16,13.21-31.15,28.92-49.89,41.39-9.83,6.48-32.73,21.36-66.05,28.76-29.65,6.65-55.72,4.65-74.13,1.33,0-53.27-.17-106.55-.25-159.82.75.08,1.5.08,2.42.08,38.9,1.75,67.21-19.78,93.28-42.14,4.33-3.82,8.66-7.56,12.91-11.22,21.4-18.45,41.06-38.31,61.47-57.6,18.07-17.04,36.65-39.14,64.05-43.63.42-.08.75-.17,1.17-.08,1.58-.33,3.25-.5,4.83-.58,12.41-1.16,26.15.5,36.81,5.82,10.66,5.32,16.41,15.87,20.24,27.68,2.42,7.48,4,15.54,5.66,22.94,1.83,8.06,3.17,13.8,3.33,14.54,2.08,9.31,8.16,26.01,25.99,58.59v.08Z" fill="#fff"/></svg>` as const;
 
 class ChatWidget extends HTMLElement {
   private _isOpen = false;
@@ -26,6 +27,9 @@ class ChatWidget extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+
+    // Construct initial URL
+    this._fullChatUrl = `${this._baseUrl}${this._config.chatId}`;
   }
 
   static get observedAttributes() {
@@ -56,7 +60,6 @@ class ChatWidget extends HTMLElement {
           this._config.buttonSize = newValue;
           break;
         case "message-bubble":
-          // Handle message bubble attribute
           this._config.messageBubble =
             newValue === "false"
               ? false
@@ -67,7 +70,7 @@ class ChatWidget extends HTMLElement {
           this._config.chatAlign = newValue === "left" ? "left" : "right";
           break;
         case "svg-icon":
-          this._config.svgIcon = newValue || svgIcon as string;
+          this._config.svgIcon = newValue || (svgIcon as string);
           break;
       }
       this.render();
@@ -90,7 +93,7 @@ class ChatWidget extends HTMLElement {
     window.addEventListener("resize", this.handleResize);
     window.addEventListener("chat-widget/updateContext", this.updateContext);
 
-    this.handleResize(); // Initial check
+    this.handleResize();
   }
 
   private removeEventListeners() {
@@ -115,9 +118,11 @@ class ChatWidget extends HTMLElement {
     if (this._config.getContext) {
       try {
         const context = this._config.getContext();
+
         const url = new URL(this._fullChatUrl);
         url.searchParams.set("context", context);
         this._fullChatUrl = url.toString();
+
         this.render();
       } catch (error) {
         console.error("Failed to get context:", error);
@@ -125,14 +130,11 @@ class ChatWidget extends HTMLElement {
     }
   }
 
-  getContext(fn: () => string) {
+  set getContext(fn: () => string) {
     this._config.getContext = fn;
   }
 
   private render() {
-    // Construct initial URL if not set
-    this._fullChatUrl = `${this._baseUrl}${this._config.chatId}`;
-
     const style = `
       <style>
       .chat-widget {
@@ -271,8 +273,12 @@ class ChatWidget extends HTMLElement {
 
       .chat-iframe {
         width: 100%;
-        height: calc(100% - 1% - 20px);
+        height: 100%;
         border: none;
+      }
+
+      .mobile-fullscreen .chat-iframe {
+        height: calc(100% - 1% - 20px) !important;
       }
       </style>
     `;
