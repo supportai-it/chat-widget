@@ -6,6 +6,7 @@ export interface ChatWidgetProps {
   getContext?: () => string;
   messageBubble?: string | boolean;
   chatAlign?: "left" | "right";
+  svgIcon?: string;
 }
 
 declare global {
