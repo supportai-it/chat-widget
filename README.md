@@ -6,7 +6,7 @@
 ### Usign CND:
 ```html
 <script src="
-https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget/dist/chat-widget.umd.min.js
+https://cdn.jsdelivr.net/npm/@supportai.it/chat-widget/dist/chat-widget.umd.js
 "></script>
 ```
 
