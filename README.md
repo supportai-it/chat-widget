@@ -72,6 +72,32 @@ function App() {
 }
 ```
 
+### Vue
+```vue
+<script setup>
+  import { useTemplateRef, onMounted } from 'vue'
+  import '@supportai.it/chat-widget'
+
+  const chatWidget = useTemplateRef("chatWidget")
+
+  onMounted(() => {
+    if (chatWidget.value) {
+      chatWidget.value.getContext = () => {
+        return JSON.stringify({ user: "example" })
+      }
+    }
+  })
+</script>
+
+<template>
+    <chat-widget
+      ref="chatWidget"
+      chat-id="chat-id"
+      api-key="api-key"
+    ></chat-widget>
+</template>
+```
+
 ### Updating Context Dynamically
 
 ```javascript
